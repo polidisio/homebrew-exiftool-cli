@@ -13,12 +13,12 @@ class ExiftoolCli < Formula
     bin.mkpath
     (bin/"exiftool-cli").write <<~SCRIPT
       #!/bin/bash
-      export PYTHONPATH="#{libexec}/exiftool-cli--git/src"
+      export PYTHONPATH="#{libexec}:#{libexec}/exiftool-cli--git/src"
       exec #{Formula["python@3.11"].opt_bin}/python3.11 -m exiftool_cli.cli "$@"
     SCRIPT
     chmod 0555, bin/"exiftool-cli"
 
-    system "#{Formula["python@3.11"].opt_bin}/pip3.11", "install", "--prefix=#{prefix}",
+    system "#{Formula["python@3.11"].opt_bin}/pip3.11", "install", "--target=#{libexec}",
           "Pillow>=10.0.0", "piexif>=1.1.3", "click>=8.1.0", "colorama>=0.4.6"
   end
 
