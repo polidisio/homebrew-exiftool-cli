@@ -8,7 +8,7 @@ class ExiftoolCli < Formula
 
   def install
     libexec.mkpath
-    system "tar", "-xzf", cached_download, "-C", libexec, "--strip-components=1"
+    system "cp", "-r", cached_download, libexec
 
     bin.mkpath
     (bin/"exiftool-cli").write <<~SCRIPT
