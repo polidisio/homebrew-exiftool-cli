@@ -3,11 +3,7 @@ class ExiftoolCli < Formula
 
   desc "CLI tool for extracting, exporting, and removing EXIF metadata from photos"
   homepage "https://github.com/polidisio/exiftool-cli"
-  url "https://github.com/polidisio/exiftool-cli.git",
-      tag: "v1.0.0",
-      revision: "0000000000000000000000000000000000000000"
   license "MIT"
-  head "https://github.com/polidisio/exiftool-cli.git", branch: "main"
 
   depends_on "python@3.11"
 
@@ -27,6 +23,6 @@ class ExiftoolCli < Formula
   end
 
   test do
-    system "#{bin}/exiftool-cli", "--version"
+    system "#{bin}/exiftool-cli", "--help"
   end
 end
