@@ -13,7 +13,7 @@ class ExiftoolCli < Formula
     bin.mkpath
     (bin/"exiftool-cli").write <<~SCRIPT
       #!/bin/bash
-      export PYTHONPATH="#{libexec}"
+      export PYTHONPATH="#{libexec}/src"
       exec #{Formula["python@3.11"].opt_bin}/python3.11 -m exiftool_cli.cli "$@"
     SCRIPT
     chmod 0555, bin/"exiftool-cli"
