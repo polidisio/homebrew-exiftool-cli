@@ -11,12 +11,7 @@ class ExiftoolCli < Formula
   def install
     virtualenv_created_with_system_python = false
 
-    args = ["--no-download", "--withoutensurepip"]
-    if OS.mac?
-      args << "--with-system-python"
-    end
-
-    venv = virtualenv_create(libexec, "python3.11", *args)
+    venv = virtualenv_create(libexec, "python3.11")
     venv.pip_install "Pillow>=10.0.0", "piexif>=1.1.3", "click>=8.1.0", "colorama>=0.4.6"
     venv.pip_install_and_link buildpath
 
