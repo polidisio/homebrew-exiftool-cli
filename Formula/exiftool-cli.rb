@@ -10,10 +10,6 @@ class ExiftoolCli < Formula
   head "https://github.com/polidisio/exiftool-cli.git", branch: "main"
 
   depends_on "python@3.11"
-  depends_on "pillow"
-  depends_on "piexif"
-  depends_on "click"
-  depends_on "colorama"
 
   def install
     virtualenv_created_with_system_python = false
@@ -24,7 +20,8 @@ class ExiftoolCli < Formula
     end
 
     venv = virtualenv_create(libexec, "python3.11", *args)
-    venv.pip_install_and_link(buildpath)
+    venv.pip_install "Pillow>=10.0.0", "piexif>=1.1.3", "click>=8.1.0", "colorama>=0.4.6"
+    venv.pip_install_and_link buildpath
 
     bin.install_symlink "#{libexec}/bin/exiftool-cli" => "exiftool-cli"
   end
