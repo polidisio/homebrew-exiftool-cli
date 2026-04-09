@@ -1,4 +1,4 @@
-class ExiftoolCli < Formula
+class Exiftoolcli < Formula
   desc "CLI tool for extracting, exporting, and removing EXIF metadata from photos"
   homepage "https://github.com/polidisio/exiftool-cli"
   license "MIT"
